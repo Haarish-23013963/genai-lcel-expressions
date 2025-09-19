@@ -60,9 +60,7 @@ retriever = vectorstore.as_retriever()
 
 retriever.get_relevant_documents("what is generative ai?")
 retriever.get_relevant_documents("what is the full form of LCEL")
-```
 
-```
 template = """Answer the question based only on the following context:
 {context}
 
@@ -78,9 +76,7 @@ chain = RunnableMap({
 }) | prompt | model | output_parser
 
 chain.invoke({"question": "what is the full form of LCEL?"})
-```
 
-```
 inputs = RunnableMap({
     "context": lambda x: retriever.get_relevant_documents(x["question"]),
     "question": lambda x: x["question"]
