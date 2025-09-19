@@ -1,12 +1,12 @@
-## Design and Implementation of LangChain Expression Language (LCEL) Expressions
+# Design and Implementation of LangChain Expression Language (LCEL) Expressions
 
-### AIM:
+## AIM:
 To design and implement a LangChain Expression Language (LCEL) expression that utilizes at least two prompt parameters and three key components (prompt, model, and output parser), and to evaluate its functionality by analyzing relevant examples of its application in real-world scenarios.
 
-### PROBLEM STATEMENT: 
+## PROBLEM STATEMENT: 
 Design an LCEL pipeline using LangChain with at least two dynamic prompt parameters.  Integrate prompt, model, and output parser components to form a complete expression.  Evaluate its functionality through real-world query-response scenarios.
 
-### DESIGN STEPS:
+## DESIGN STEPS:
 
 #### STEP 1: Setup API and Environment: Load environment variables using dotenv and set openai.api_key from the local environment.
 
@@ -18,12 +18,13 @@ Design an LCEL pipeline using LangChain with at least two dynamic prompt paramet
 
 #### STEP 5: Invoke the Chain: Run chain.invoke() with a question to retrieve context-based answers using the LangChain pipeline.
 
-### PROGRAM:
+## PROGRAM:
 <h3> Name: HAARISH V</h3>
 <H3> Reg NO: 212223230067</H3>
 
-Simple Chain
+### Simple Chain
 ```
+
 import os
 import openai
 
@@ -43,17 +44,17 @@ output_parser = StrOutputParser()
 
 chain = prompt | model | output_parser
 
-chain.invoke({"topic": "dog"})
+chain.invoke({"topic": "one piece"})
 ```
 
 
-Complex Chain
+### Complex Chain
 ```
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import DocArrayInMemorySearch   
 
 vectorstore = DocArrayInMemorySearch.from_texts(
-    ["GGenerative AI is a type of artificial intelligence that creates new content, such as text, images, or code, based on learned patterns.","(LCEL)LangChain Expression Language (LCEL) is a declarative syntax for composing and chaining LangChain components efficiently."],
+    ["Generative AI is a type of artificial intelligence that creates new content, such as text, images, or code, based on learned patterns.","(LCEL)LangChain Expression Language (LCEL) is a declarative syntax for composing and chaining LangChain components efficiently."],
     embedding=OpenAIEmbeddings()
 )
 retriever = vectorstore.as_retriever()
@@ -86,12 +87,13 @@ inputs.invoke({"question": "what is the full form of LCEL?"})
 ```
 
 
-### OUTPUT:
-Simple Chain 
-![Screenshot 2025-03-29 114406](https://github.com/user-attachments/assets/db46e873-7bbd-4f86-a677-a54044964fee)
-Complex Chain
-![Screenshot 2025-03-29 114429](https://github.com/user-attachments/assets/b6ddf47a-cffe-419d-84df-545bdb403874)
+## OUTPUT:
+### Simple Chain 
+<img width="1196" height="187" alt="image" src="https://github.com/user-attachments/assets/889b2153-f50a-40ff-8ecb-0130e89230e8" />
+
+### Complex Chain
+<img width="784" height="88" alt="image" src="https://github.com/user-attachments/assets/df614b83-50ef-4fa8-9c15-9e18b9500ba8" />
 
 
-### RESULT: 
+## RESULT: 
 The implemented LCEL expression takes at least two prompt parameters, processes them using a model, and formats the output with a parser, demonstrating its effectiveness through real-world examples.
